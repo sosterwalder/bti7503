@@ -1,0 +1,94 @@
+# Imports
+import os
+import platform
+import multiprocessing
+
+# Global variables
+Import('main_path')
+
+# Constants
+OUTPUT_DIR = 'bin'
+BINARY_NAME = 'exercise1-1'
+
+operating_system = platform.system()
+
+try:
+    num_cpu = multiprocessing.cpu_count()
+except NotImplementedError:
+    num_cpu = 2
+SetOption('num_jobs', num_cpu)
+print "INFO: Running with {0} parallel jobs.".format(GetOption('num_jobs'))
+
+cxx = [
+    'clang++'
+]
+
+# E.g. 'GLEW', 'Magick++-6.Q16',
+if operating_system == 'Darwin':
+    libs = [
+    ]
+else:
+    libs = [
+    ]
+
+# Include all .cpp (and .h/.hpp) files
+file_list = [
+	Glob('*.cpp')
+]
+
+# E.g. '/usr/local/include/ImageMagick-6/',
+include_dirs = [
+]
+
+# Use c++11 and show all warnings
+flags = [
+	'-std=c++11',
+	'-Wall'
+]
+
+# Used for Darwin, e.g. '-framework', 'OpenGL',
+link_flags = [
+]
+
+# E.g. '-DMAGICKCORE_QUANTUM_DEPTH=16',
+defines = [
+]
+
+# Wether to use debugging
+if ARGUMENTS.get('debug', 0):
+	flags.extend(['-g'])
+else:
+	flags.extend(['-O3'])
+
+
+env = Environment(
+    CPPPATH = include_dirs,
+	CCFLAGS = flags,
+    CPPDEFINES = defines,
+    CXX = cxx,
+    ENV = {
+        'PATH' : os.environ['PATH'],
+        'TERM' : os.environ['TERM'],
+        'HOME' : os.environ['HOME']
+    }
+)
+
+if operating_system == 'Darwin':
+    env.Append(
+        RPATH = '/usr/local/lib'
+    )
+    env.Append(
+        LINKFLAGS = link_flags
+    )
+
+env.Program(
+    os.path.join(
+        main_path,
+        os.path.join(
+            OUTPUT_DIR,
+            BINARY_NAME
+        )
+    ),
+    file_list,
+    LIBS=libs
+)
