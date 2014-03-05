@@ -15,7 +15,7 @@
 #include "SPoint.h"
 
 
-
+/*******************************************************************
 // The function makes a right-angle triangle with sides of length 'dim'
 // and the vertex with coordinates (x, y)
 // Memory is allocated dynamically for each point of the triangle,
@@ -49,6 +49,7 @@ void makeSquare( Point **figure, int dim, int x, int y )
             ++next;
         }
 } 
+*////////////////////////////////////////////////////////////////////////
 
 // The function draws the figure stored in the array 'figure' to 
 // the board b. 
