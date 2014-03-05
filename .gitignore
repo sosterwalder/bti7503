@@ -14,3 +14,6 @@
 
 # Scons-specific
 *.sconsign.dblite
+
+# ROPE specific
+*.ropeproject
