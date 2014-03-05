@@ -154,7 +154,7 @@ int main()
     for( int i = 0; figure2[i] != 0; ++i )
         delete figure2[i];
 
-    std::cout << "Point-instances: " << Point::getInstanceCount() << std::endl;
+    std::cout << "Total Point-instances: " << Point::getInstanceCount() << std::endl;
 
     return 0;
 } 

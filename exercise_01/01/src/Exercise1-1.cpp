@@ -26,7 +26,7 @@ public:
 //
 // * It is not possible to reassign a reference
 int compareHuge(Huge& s1, Huge& s2) {
-  return( s1.key > s2.key);
+  return(s1.key > s2.key);
 }
 
 // Here the parameters have been changed too.

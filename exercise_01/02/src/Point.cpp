@@ -12,12 +12,15 @@
 #include <cstdio>
 #include "Point.h"
 
+// Initialization of static member(s)
+std::size_t Point::instanceCount_ = 0;
 
 // the constructor initializes the coordinates of the point
 Point::Point( int x_coord, int y_coord )
 {
     x = x_coord;
     y = y_coord;
+    Point::instanceCount_ += 1;
 }
 
 // return the value of x coordinate
