@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Board.h"
 #include "Point.h"
-//#include "SPoint.h"
+#include "SPoint.h"
 
 
 
@@ -77,7 +77,7 @@ void moveFigure( Point** figure, int x_move, int y_move )
 }
 
 // When testing the class Spoint, remove the comments:
-/*******************************************************************
+//*******************************************************************
 void makeSymbTriangle( Point **figure, int dim, int x, int y, char s )
 {
     int next = 0;
@@ -101,7 +101,7 @@ void makeSymbSquare( Point **figure, int dim, int x, int y, char s )
             ++next;
         }
 } 
-*////////////////////////////////////////////////////////////////////////
+//*////////////////////////////////////////////////////////////////////////
 
 
 int main()
@@ -118,13 +118,13 @@ int main()
     Point *figure1[11] = {0};
     Point *figure2[17] = {0};
 
-    makeTriangle( figure1, 4, 7, 3 );
-    makeSquare( figure2, 4, 10, 12 );
+    //makeTriangle( figure1, 4, 7, 3 );
+    //makeSquare( figure2, 4, 10, 12 );
 
     // For testing a symbol point call thse methods instead of
     // the ones above:
-    // makeSymbTriangle( figure1, 4, 7, 3, '$' );
-    // makeSymbSquare( figure2, 4, 10, 12, '&' );
+    makeSymbTriangle( figure1, 4, 7, 3, '$' );
+    makeSymbSquare( figure2, 4, 10, 12, '&' );
 
     // draw the figures on the board
     writeToBoard( figure1, b );

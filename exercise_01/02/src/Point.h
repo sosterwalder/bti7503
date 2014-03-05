@@ -20,7 +20,7 @@ public:
     int getX( void );
     int getY( void );
     void move ( int x_move, int y_move );
-    bool copyToBoard ( Board & );
+    virtual bool copyToBoard ( Board & );
     static std::size_t getInstanceCount() { return Point::instanceCount_; }
 
 private:
