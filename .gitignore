@@ -17,3 +17,6 @@
 
 # ROPE specific
 *.ropeproject
+
+# Swap files
+*.swp
